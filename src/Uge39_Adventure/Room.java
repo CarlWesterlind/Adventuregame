@@ -13,20 +13,36 @@ public class Room {
         this.description = description;
     }
 
-    public void setNorth(Room room) {
-        this.north = room;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setEast(Room room) {
-        this.east = room;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setSouth(Room room) {
-        this.south = room;
+    public void setNorth(Room north) {
+        this.north = north;
     }
 
-    public void setWest(Room room) {
-        this.west = room;
+    public void setEast(Room east) {
+        this.east = east;
+    }
+
+    public void setSouth(Room south) {
+        this.south = south;
+    }
+
+    public void setWest(Room west) {
+        this.west = west;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public Room getEast() {
@@ -43,4 +59,6 @@ public class Room {
     public Room getWest() {
         return west;
     }
+
+
 }
