@@ -15,41 +15,41 @@ public class UserInterface {
             String input = scanner.nextLine().toLowerCase();
             switch (input) {
                 case "go north":
-                case "north":
+                case "n":
                     System.out.println("Going north");
                     break;
 
                 case "go west":
-                case "west":
+                case "w":
                     System.out.println("Going west");
                     break;
 
                 case "go south":
-                case "south":
+                case "s":
                     System.out.println("Going south");
                     break;
 
                 case "go east":
-                case "east":
+                case "e":
                     System.out.println("Going east");
                     break;
                 case "look":
-                    System.out.println("Looking around the room");
+                    System.out.println();
                     break;
 
                 case "help":
-                    System.out.println("Commands \n go north \n go west\n go east \n go south \n look\n exit");
+                    System.out.println("Commands: \n go north \n go west\n go east \n go south \n look\n exit");
                     break;
 
                 case "exit":
                     System.out.println("You have exit the game!");
-                default:
+                    running = false;
+                break;
 
             }
-            scanner.close();
-
 
         }
+        scanner.close();
 
     }
 }
