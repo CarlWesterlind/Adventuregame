@@ -2,7 +2,10 @@ package Uge39_Adventure;
 
 public class Map {
 
+
+
     public static Room buildMap() {
+
 
             Room room1 = new Room("Room 1", "An empty room");
             Room room2 = new Room("Room 2", "A bright room");
@@ -38,7 +41,7 @@ public class Map {
             room8.setWest(room7);
             room8.setEast(room9);
 
-            room9.setWest(room7);
+            room9.setWest(room8);
             room9.setNorth(room6);
 
 

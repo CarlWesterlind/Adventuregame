@@ -60,8 +60,8 @@ public class UserInterface {
                     }
                     break;
                 case "look":
-                    Map.buildMap();
-                    System.out.println();
+                    System.out.println("You are in " + currenRoom.getName());
+                    System.out.println(currenRoom.getDescription());
                     break;
 
                 case "help":
