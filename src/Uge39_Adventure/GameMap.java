@@ -1,7 +1,6 @@
 package Uge39_Adventure;
 
-public class Map {
-
+public class GameMap {
 
         private static Room currentRoom;
 
