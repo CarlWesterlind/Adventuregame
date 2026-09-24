@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class UserInterface {
     static void User(Adventure adventure) {
-
-        Room currenRoom = GameMap.buildMap();
+        adventure.startGame();
 
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
