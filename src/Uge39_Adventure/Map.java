@@ -3,6 +3,14 @@ package Uge39_Adventure;
 public class Map {
 
 
+        private static Room currentRoom;
+
+        public static Room getCurrentRoom(){
+                return currentRoom;
+        }
+        public static void setCurrentRoom(Room room){
+                currentRoom = room;
+        }
 
     public static Room buildMap() {
 
