@@ -3,7 +3,7 @@ package Uge39_Adventure;
 import java.util.Scanner;
 
 public class UserInterface {
-    static void User(Main main) {
+    static void User(Adventure adventure) {
 
         Room currenRoom = Map.buildMap();
 
