@@ -8,8 +8,8 @@ public class UserInterface {
 
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
-        System.out.println("Welcome to Adventure!");
-        System.out.print("Type 'help' for commands");
+        System.out.print("Welcome to Adventure!");
+        System.out.println("Type 'help' for commands");
 
         while(running){
             System.out.print("\n > ");
@@ -19,7 +19,7 @@ public class UserInterface {
                 case "north":
                 case "n":
                     if(adventure.go("north")){
-                        System.out.println("Going north");
+                        System.out.print("Going north");
                         System.out.println(adventure.look());
                     }else {
                         System.out.println("You can't go that way");
@@ -30,7 +30,7 @@ public class UserInterface {
                 case "west":
                 case "w":
                     if(adventure.go("west")){
-                        System.out.println("Going west");
+                        System.out.print("Going west");
                         System.out.println(adventure.look());
                     }else {
                         System.out.println("You can't go that way");
@@ -41,7 +41,7 @@ public class UserInterface {
                 case "south":
                 case "s":
                     if(adventure.go("south")){
-                        System.out.println("Going south");
+                        System.out.print("Going south");
                         System.out.println(adventure.look());
                     }else {
                         System.out.println("You can't go that way");
@@ -52,22 +52,22 @@ public class UserInterface {
                 case "east":
                 case "e":
                     if(adventure.go("east")){
-                        System.out.println("Going east");
+                        System.out.print("Going east");
                         System.out.println(adventure.look());
                     }else {
                         System.out.println("You can't go that way");
                     }
                     break;
                 case "look":
-                    System.out.println(adventure.look());
+                    System.out.print(adventure.look());
                     break;
 
                 case "help":
-                    System.out.println("Commands: \n go north (n, north) \n go west (w, west) \n go east (e, east) \n go south (s, south) \n look\n exit");
+                    System.out.print("Commands: \n go north (n, north) \n go west (w, west) \n go east (e, east) \n go south (s, south) \n look\n exit");
                     break;
 
                 case "exit":
-                    System.out.println("You have exit the game!");
+                    System.out.print("You have exit the game!");
                     running = false;
                 break;
 
