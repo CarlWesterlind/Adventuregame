@@ -18,27 +18,42 @@ public class UserInterface {
             switch (input) {
                 case "go north":
                 case "n":
-                    Map.buildMap();
-                    System.out.println("Going north");
+                    if(currenRoom.getNorth()!=null){
+                        currenRoom = currenRoom.getNorth();
+                        System.out.println("Going north");
+                    }else {
+                        System.out.println("You can't go that way");
+                    }
                     break;
 
                 case "go west":
                 case "w":
-
-
-                    System.out.println("Going west");
+                    if(currenRoom.getWest()!=null){
+                        currenRoom=currenRoom.getWest();
+                        System.out.println("Going west");
+                    }else {
+                        System.out.println("You can't go that way");
+                    }
                     break;
 
                 case "go south":
                 case "s":
-                    Map.buildMap();
-                    System.out.println("Going south");
+                    if(currenRoom.getSouth()!=null){
+                        currenRoom=currenRoom.getSouth();
+                        System.out.println("Going south");
+                    }else {
+                        System.out.println("You can't go that way");
+                    }
                     break;
 
                 case "go east":
                 case "e":
-                    Map.buildMap();
-                    System.out.println("Going east");
+                    if(currenRoom.getEast()!=null){
+                        currenRoom=currenRoom.getEast();
+                        System.out.println("Going east");
+                    }else {
+                        System.out.println("You can't go that way");
+                    }
                     break;
                 case "look":
                     Map.buildMap();
