@@ -16,24 +16,29 @@ public class UserInterface {
             switch (input) {
                 case "go north":
                 case "n":
+                    Map.buildMap();
                     System.out.println("Going north");
                     break;
 
                 case "go west":
                 case "w":
+                    Map.buildMap();
                     System.out.println("Going west");
                     break;
 
                 case "go south":
                 case "s":
+                    Map.buildMap();
                     System.out.println("Going south");
                     break;
 
                 case "go east":
                 case "e":
+                    Map.buildMap();
                     System.out.println("Going east");
                     break;
                 case "look":
+                    Map.buildMap();
                     System.out.println();
                     break;
 
