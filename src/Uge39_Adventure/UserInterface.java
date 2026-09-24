@@ -14,9 +14,10 @@ public class UserInterface {
 
         while(running){
             System.out.print("\n > ");
-            String input = scanner.nextLine().toLowerCase();
+            String input = scanner.nextLine().trim().toLowerCase();
             switch (input) {
                 case "go north":
+                case "north":
                 case "n":
                     if(currenRoom.getNorth()!=null){
                         currenRoom = currenRoom.getNorth();
@@ -27,6 +28,7 @@ public class UserInterface {
                     break;
 
                 case "go west":
+                case "west":
                 case "w":
                     if(currenRoom.getWest()!=null){
                         currenRoom=currenRoom.getWest();
@@ -37,6 +39,7 @@ public class UserInterface {
                     break;
 
                 case "go south":
+                case "south":
                 case "s":
                     if(currenRoom.getSouth()!=null){
                         currenRoom=currenRoom.getSouth();
@@ -47,6 +50,7 @@ public class UserInterface {
                     break;
 
                 case "go east":
+                case "east":
                 case "e":
                     if(currenRoom.getEast()!=null){
                         currenRoom=currenRoom.getEast();
