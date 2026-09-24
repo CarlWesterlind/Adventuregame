@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class UserInterface {
     static void User(Main main) {
 
+        Room currenRoom = Map.buildMap();
+
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
         System.out.println("Welcome to Adventure!");
@@ -22,7 +24,8 @@ public class UserInterface {
 
                 case "go west":
                 case "w":
-                    Map.buildMap();
+
+
                     System.out.println("Going west");
                     break;
 
