@@ -65,7 +65,7 @@ public class UserInterface {
                     break;
 
                 case "help":
-                    System.out.println("Commands: \n go north \n go west\n go east \n go south \n look\n exit");
+                    System.out.println("Commands: \n go north (n, north) \n go west (w, west) \n go east (e, east) \n go south (s, south) \n look\n exit");
                     break;
 
                 case "exit":
