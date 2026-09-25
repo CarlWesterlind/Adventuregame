@@ -7,7 +7,6 @@ public class Room {
     private Room east;
     private Room south;
     private Room west;
-
     private boolean visited = false;
 
     public Room(String name, String description) {
@@ -69,7 +68,6 @@ public class Room {
         return west;
     }
 
-
     public void setVisited(boolean visited) {
         this.visited = visited;
     }
@@ -77,4 +75,5 @@ public class Room {
     public boolean isVisited(){
         return visited;
     }
+
 }

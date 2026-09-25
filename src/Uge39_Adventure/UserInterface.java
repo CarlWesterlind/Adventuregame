@@ -16,7 +16,7 @@ public class UserInterface {
             System.out.print("\n > ");
             String input = scanner.nextLine().trim().toLowerCase();
             switch (input) {
-                case "go north", "north", "n":
+                case "go north","north","n":
                     if(adventure.go("north")){
                         System.out.print("Going north\n");
                         System.out.println(adventure.look());
@@ -25,7 +25,7 @@ public class UserInterface {
                     }
                     break;
 
-                case "go west", "west", "w":
+                case "go west","west","w":
                     if(adventure.go("west")){
                         System.out.print("Going west\n");
                         System.out.println(adventure.look());
@@ -34,7 +34,7 @@ public class UserInterface {
                     }
                     break;
 
-                case "go south", "south", "s":
+                case "go south","south","s":
                     if(adventure.go("south")){
                         System.out.print("Going south\n");
                         System.out.println(adventure.look());
@@ -43,7 +43,7 @@ public class UserInterface {
                     }
                     break;
 
-                case "go east", "east", "e":
+                case "go east","east","e":
                     if(adventure.go("east")){
                         System.out.print("Going east\n");
                         System.out.println(adventure.look());
