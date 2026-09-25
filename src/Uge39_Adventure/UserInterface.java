@@ -71,6 +71,10 @@ public class UserInterface {
                     running = false;
                 break;
 
+                default:
+                    System.out.println("Unknown command. Try 'help' for commandlist");
+                    break;
+
             }
 
         }
