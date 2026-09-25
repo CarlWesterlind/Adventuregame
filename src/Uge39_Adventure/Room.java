@@ -8,6 +8,8 @@ public class Room {
     private Room south;
     private Room west;
 
+    private boolean visited = false;
+
     public Room(String name, String description) {
         this.name = name;
         this.description = description;
@@ -68,4 +70,11 @@ public class Room {
     }
 
 
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
+
+    public boolean isVisited(){
+        return visited;
+    }
 }

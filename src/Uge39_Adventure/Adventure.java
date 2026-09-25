@@ -6,6 +6,7 @@ public class Adventure {
     public void startGame(){
         Room startRoom = GameMap.buildMap();
         player = new Player(startRoom);
+        startRoom.setVisited(true);
     }
     public boolean go(String direction){
         return player.move(direction);
