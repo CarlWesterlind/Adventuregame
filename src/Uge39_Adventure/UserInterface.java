@@ -8,8 +8,8 @@ public class UserInterface {
 
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
-        System.out.print("Welcome to Adventure!");
-        System.out.println("Type 'help' for commands");
+        System.out.print("Welcome to Adventure!\n");
+        System.out.print("Type 'help' for commands");
 
         while(running){
             System.out.print("\n > ");
@@ -19,7 +19,7 @@ public class UserInterface {
                 case "north":
                 case "n":
                     if(adventure.go("north")){
-                        System.out.print("Going north");
+                        System.out.print("Going north\n");
                         System.out.println(adventure.look());
                     }else {
                         System.out.println("You can't go that way");
@@ -30,7 +30,7 @@ public class UserInterface {
                 case "west":
                 case "w":
                     if(adventure.go("west")){
-                        System.out.print("Going west");
+                        System.out.print("Going west\n");
                         System.out.println(adventure.look());
                     }else {
                         System.out.println("You can't go that way");
@@ -41,7 +41,7 @@ public class UserInterface {
                 case "south":
                 case "s":
                     if(adventure.go("south")){
-                        System.out.print("Going south");
+                        System.out.print("Going south\n");
                         System.out.println(adventure.look());
                     }else {
                         System.out.println("You can't go that way");
@@ -52,7 +52,7 @@ public class UserInterface {
                 case "east":
                 case "e":
                     if(adventure.go("east")){
-                        System.out.print("Going east");
+                        System.out.print("Going east\n");
                         System.out.println(adventure.look());
                     }else {
                         System.out.println("You can't go that way");
