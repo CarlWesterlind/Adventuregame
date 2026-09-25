@@ -19,6 +19,9 @@ public class Player {
             currentRoom = desiredRoom;
             if(currentRoom.isVisited()){
                 System.out.println("You have been here before.");
+            } else {
+                System.out.println("This is a new room");
+                currentRoom.setVisited(true);
             }
             return true;
         }else {
