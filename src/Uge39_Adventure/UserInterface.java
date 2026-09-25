@@ -10,7 +10,7 @@ public class UserInterface {
         boolean running = true;
         System.out.print("Welcome to Adventure!\n");
         System.out.print("Type 'help' for commands\n");
-        System.out.print("You are in room 1\n");
+        System.out.print(adventure.look());
 
         while(running){
             System.out.print("\n > ");
