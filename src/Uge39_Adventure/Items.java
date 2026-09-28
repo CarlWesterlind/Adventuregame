@@ -1,7 +1,5 @@
 package Uge39_Adventure;
 
-import java.util.ArrayList;
-
 public class Items {
     private String shortName;
     private String longName;
