@@ -9,6 +9,7 @@ public class Room {
     private Room west;
     private boolean visited = false;
 
+
     public Room(String name, String description) {
         this.name = name;
         this.description = description;
