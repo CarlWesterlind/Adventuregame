@@ -24,7 +24,7 @@ public class UserInterface {
                 }else{
                     System.out.println("There is no " + itemName + " here.");
                 }
-                break;
+                continue;
             }
 
             if (input.startsWith("drop")){
@@ -35,7 +35,7 @@ public class UserInterface {
                 }else{
                     System.out.println("You don't have a " + itemName + ".");
                 }
-                break;
+                continue;
             }
 
             switch (input) {
