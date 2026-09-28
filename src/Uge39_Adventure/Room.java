@@ -1,5 +1,5 @@
 package Uge39_Adventure;
-
+import java.util.ArrayList;
 public class Room {
     private String name;
     private String description;
@@ -8,10 +8,12 @@ public class Room {
     private Room south;
     private Room west;
     private boolean visited = false;
+    private ArrayList<Item> items;
 
     public Room(String name, String description) {
         this.name = name;
         this.description = description;
+        this.items = new ArrayList<>();
     }
 
     public void setName(String name) {
@@ -74,6 +76,18 @@ public class Room {
 
     public boolean isVisited(){
         return visited;
+    }
+
+    public void addItem(Item item){
+        items.add(item);
+    }
+
+    public void removeItem(Item item){
+        items.remove(item);
+    }
+
+    public ArrayList<Item> getItems(){
+        return items;
     }
 
 }
