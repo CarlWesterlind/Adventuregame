@@ -38,4 +38,15 @@ public class Adventure {
     public boolean drop(String itemName) {
         return player.dropItem(itemName);
     }
+    public String inventory(){
+        if (player.getInventory().isEmpty()){
+            return ("Your inventory is empty");
+        }
+        String result = "You are Carrying:";
+
+        for (Item item : player.getInventory()){
+            result += "\n- " + item.getLongName();
+        }
+        return result;
+    }
 }

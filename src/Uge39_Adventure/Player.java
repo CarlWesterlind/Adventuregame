@@ -37,6 +37,10 @@ public class Player {
     public Room getCurrentRoom() {
         return currentRoom;
     }
+
+    public ArrayList<Item> getInventory(){
+        return inventory;
+    }
     private Item findItem(String name,ArrayList<Item> list){
         for(Item item : list) {
             if(item.getShortName().equals(name)){
@@ -64,7 +68,4 @@ public class Player {
         currentRoom.addItem(item);
         return true;
     }
-
-
-
 }

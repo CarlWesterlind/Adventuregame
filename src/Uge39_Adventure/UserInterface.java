@@ -15,6 +15,29 @@ public class UserInterface {
         while(running){
             System.out.print("\n > ");
             String input = scanner.nextLine().trim().toLowerCase();
+
+            if(input.startsWith("take ")){
+                String itemName = input.substring(5);
+
+                if (adventure.take(itemName)){
+                    System.out.println("You picked up the " + itemName + ".");
+                }else{
+                    System.out.println("There is no " + itemName + " here.");
+                }
+                break;
+            }
+
+            if (input.startsWith("drop")){
+                String itemName = input.substring(5);
+
+                if (adventure.drop(itemName)){
+                    System.out.println("You dropped the " + itemName + ".");
+                }else{
+                    System.out.println("You don't have a " + itemName + ".");
+                }
+                break;
+            }
+
             switch (input) {
                 case "go north","north","n":
                     if(adventure.go("north")){
@@ -56,15 +79,7 @@ public class UserInterface {
                     break;
 
                 case "inventory", "i":
-
-
-                    break;
-                case "take":
-
-                    break;
-
-                case "drop":
-
+                    System.out.println(adventure.inventory());
                     break;
 
                 case "help":
