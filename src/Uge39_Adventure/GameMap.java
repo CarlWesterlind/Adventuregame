@@ -20,7 +20,7 @@ public class GameMap {
             Item stone = new Item("stone", "a shiny stone");
 
             room1.addItem(lamp);
-            room4.addItem(key);
+            room1.addItem(key);
             room7.addItem(stone);
 
             room1.setEast(room2);
