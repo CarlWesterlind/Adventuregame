@@ -18,7 +18,16 @@ public class Adventure {
 
     public String look() {
         Room room = player.getCurrentRoom();
-        return "You are in " + room.getName() + "\n" + room.getDescription();
+        String result = "You are in " + room.getName() + "\n" + room.getDescription();
+
+        if (!room.getItems().isEmpty()){
+            result += "\n\nItems:";
+
+            for (Item item : room.getItems()){
+                result += "\n- " + item.getLongName();
+            }
+        }
+        return result;
     } // vurdere være variablen skal hedde(itemName er en placeholder)
 
     public boolean take(String itemName) {
