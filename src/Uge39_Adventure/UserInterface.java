@@ -57,6 +57,7 @@ public class UserInterface {
 
                 case "inventory", "i":
 
+
                     break;
                 case "take":
 
@@ -67,7 +68,7 @@ public class UserInterface {
                     break;
 
                 case "help":
-                    System.out.print("Commands: \n go north (n, north) \n go west (w, west) \n go east (e, east) \n go south (s, south) \n look\n exit");
+                    System.out.print("Commands: \n - go north (n, north) \n - go west (w, west) \n - go east (e, east) \n - go south (s, south) \n - inventory (i) \n - take\n - drop\n  - look\n - exit");
                     break;
 
                 case "exit":
