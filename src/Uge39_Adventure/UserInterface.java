@@ -55,6 +55,17 @@ public class UserInterface {
                     System.out.print(adventure.look());
                     break;
 
+                case "inventory", "i":
+
+                    break;
+                case "take":
+
+                    break;
+
+                case "drop":
+
+                    break;
+
                 case "help":
                     System.out.print("Commands: \n go north (n, north) \n go west (w, west) \n go east (e, east) \n go south (s, south) \n look\n exit");
                     break;
