@@ -15,6 +15,14 @@ public class GameMap {
             Room room8 = new Room("Room 8", "A fun room");
             Room room9 = new Room("Room 9", "A terrible room");
 
+            Item lamp = new Item("lamp", "a shiny brass lamp");
+            Item key = new Item("key", "a rusty key");
+            Item stone = new Item("stone", "a shiny stone");
+
+            room1.addItem(lamp);
+            room4.addItem(key);
+            room7.addItem(stone);
+
             room1.setEast(room2);
             room1.setSouth(room4);
 
