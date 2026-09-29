@@ -21,7 +21,7 @@ public class Adventure {
         String result = "You are in " + room.getName() + "\n" + room.getDescription();
 
         if (!room.getItems().isEmpty()){
-            result += "\n\nItems:";
+            result += "\nItems:";
 
             for (Item item : room.getItems()){
                 result += "\n- " + item.getLongName();
