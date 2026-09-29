@@ -28,12 +28,12 @@ public class Adventure {
             }
         }
         return result;
-    } // vurdere være variablen skal hedde(itemName er en placeholder)
+    }
 
     public boolean take(String itemName) {
         return player.takeItem(itemName);
 
-    }      // vurdere være variablen skal hedde
+    }
 
     public boolean drop(String itemName) {
         return player.dropItem(itemName);

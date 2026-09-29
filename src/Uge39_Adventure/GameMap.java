@@ -18,10 +18,12 @@ public class GameMap {
             Item lamp = new Item("lamp", "a shiny brass lamp");
             Item key = new Item("key", "a rusty key");
             Item stone = new Item("stone", "a shiny stone");
+            Item gold = new Item("Gold!!", "You found a shiny gold bar!");
 
             room1.addItem(lamp);
             room4.addItem(key);
             room7.addItem(stone);
+            room5.addItem(gold);
 
             room1.setEast(room2);
             room1.setSouth(room4);
