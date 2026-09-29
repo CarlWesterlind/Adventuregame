@@ -21,7 +21,7 @@ public class GameMap {
             Item gold = new Item("Gold!!", "You found a shiny gold bar!");
 
             room1.addItem(lamp);
-            room4.addItem(key);
+            room1.addItem(key);
             room7.addItem(stone);
             room5.addItem(gold);
 
