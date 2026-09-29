@@ -38,34 +38,49 @@ public class Player {
         return currentRoom;
     }
 
-    public ArrayList<Item> getInventory(){
+    public ArrayList<Item> getInventory() {
         return inventory;
     }
-    private Item findItem(String name,ArrayList<Item> list){
-        for(Item item : list) {
-            if(item.getShortName().equals(name)){
+
+    private Item findItem(String name, ArrayList<Item> list) {
+        for (Item item : list) {
+            if (item.getShortName().equals(name)) {
                 return item;
             }
         }
         return null;
 
     }
-    public boolean takeItem(String name){
-        Item item = findItem(name,currentRoom.getItems());
-        if(item == null){
+
+    public boolean takeItem(String name) {
+        Item item = findItem(name, currentRoom.getItems());
+        if (item == null) {
             return false;
         }
         currentRoom.removeItem(item);
         inventory.add(item);
         return true;
     }
-    public boolean dropItem(String name){
+
+    public boolean dropItem(String name) {
         Item item = findItem(name, inventory);
-        if(item == null){
+        if (item == null) {
             return false;
         }
         inventory.remove(item);
         currentRoom.addItem(item);
         return true;
+    }
+
+    public String dInventory(){
+        if (inventory.isEmpty()){
+            return ("Your inventory is empty");
+        }
+        String result = "You are Carrying:";
+
+        for (Item item : inventory){
+            result += "\n- " + item.getLongName();
+        }
+        return result;
     }
 }
