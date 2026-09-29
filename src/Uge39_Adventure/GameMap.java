@@ -18,7 +18,7 @@ public class GameMap {
             Item lamp = new Item("lamp", "a shiny brass lamp");
             Item key = new Item("key", "a rusty key");
             Item stone = new Item("stone", "a shiny stone");
-            Item gold = new Item("Gold!!", "You found a shiny gold bar!");
+            Item gold = new Item("gold", "You found a shiny gold bar!");
 
             room1.addItem(lamp);
             room1.addItem(key);

@@ -27,7 +27,7 @@ public class UserInterface {
                 continue;
             }
 
-            if (input.startsWith("drop")){
+            if (input.startsWith("drop ")){
                 String itemName = input.substring(5);
 
                 if (adventure.drop(itemName)){
