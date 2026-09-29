@@ -79,7 +79,7 @@ public class Player {
         String result = "You are Carrying:";
 
         for (Item item : inventory){
-            result += "\n- " + item.getLongName();
+            result += "\n\n- " + item.getLongName();
         }
         return result;
     }

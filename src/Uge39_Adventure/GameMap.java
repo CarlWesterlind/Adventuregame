@@ -20,8 +20,8 @@ public class GameMap {
             Item stone = new Item("stone", "a shiny stone");
             Item gold = new Item("gold", "You found a shiny gold bar!");
 
-            room1.addItem(lamp);
-            room1.addItem(key);
+            room9.addItem(lamp);
+            room2.addItem(key);
             room7.addItem(stone);
             room5.addItem(gold);
 
