@@ -42,5 +42,11 @@ public class Adventure {
     public String inventory(){
         return player.dInventory();
     }
+    public String eat(String foodName) {
+        return player.eat(foodName);
+    }
+
+
+
 
 }
