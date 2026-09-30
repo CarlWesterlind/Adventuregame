@@ -1,9 +1,9 @@
 package Uge39_Adventure;
 
-public class EatResult extends Item{
+public class Food extends Item{
     private int healthPoints;
 
-    public EarResult(String shortName, String longName, int healthPoints){
+    public Food(String shortName, String longName, int healthPoints){
         super(shortName, longName);
         this.healthPoints = healthPoints;
     }
