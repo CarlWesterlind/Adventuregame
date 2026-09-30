@@ -8,7 +8,6 @@ public class Health extends Player{
         super(stratRoom);
     }
 
-    public void eat(){
-        
-    }
+
 }
+

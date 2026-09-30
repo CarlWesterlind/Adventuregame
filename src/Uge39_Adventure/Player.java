@@ -72,15 +72,19 @@ public class Player {
         return true;
     }
 
-    public String dInventory(){
-        if (inventory.isEmpty()){
+    public String dInventory() {
+        if (inventory.isEmpty()) {
             return ("Your inventory is empty");
         }
         String result = "You are Carrying:";
 
-        for (Item item : inventory){
+        for (Item item : inventory) {
             result += "\n\n- " + item.getLongName();
         }
         return result;
+    }
+
+    public void eat() {
+
     }
 }
