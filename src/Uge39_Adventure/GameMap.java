@@ -15,15 +15,18 @@ public class GameMap {
             Room room8 = new Room("Room 8", "A fun room");
             Room room9 = new Room("Room 9", "A terrible room");
 
-            Item lamp = new Item("lamp", "a shiny brass lamp");
-            Item key = new Item("key", "a rusty key");
-            Food mushroomSoup = new Food("Simple comfort in a bowl","A creamy soup made from freshly foraged mushrooms. Warms you from the inside out", 15);
-            Item gold = new Item("gold", "You found a shiny gold bar!");
+            Item lamp = new Item("lamp", "A trusty lamp, worn from many journeys. Its warm glow lights the path ahead.");
+            Item key = new Item("key", "An old key with strange markings. Who knows what it might unlock?");
+            Item gold = new Item("gold", "A handful of gleaming gold coins. Useful for trade, or just admiring");
+            Food mushroomSoup = new Food("mushroom soup","A creamy soup made from freshly foraged mushrooms. Warms you from the inside out", 15);
+            Food wildMushroom = new Food("Wild mushroom", "A plump mushroom found deep in the woods. Looks just like the ones in your soup", -10);
+
 
             room9.addItem(lamp);
-            room2.addItem(key);
-            room7.addItem(mushroomSoup);
+            room4.addItem(key);
+            room2.addItem(mushroomSoup);
             room5.addItem(gold);
+            room3.addItem(wildMushroom);
 
             room1.setEast(room2);
             room1.setSouth(room4);

@@ -6,10 +6,12 @@ import java.util.ArrayList;
 public class Player {
     private Room currentRoom;
     private ArrayList<Item> inventory;
+    private int health;
 
     public Player(Room stratRoom) {
         this.currentRoom = stratRoom;
         this.inventory = new ArrayList<>();
+        this.health = 75;
     }
 
     public boolean move(String direction) {
@@ -84,7 +86,20 @@ public class Player {
         return result;
     }
 
-    public void eat() {
-
+    public EatResult eat(String shortName){
+        Item item = findItem(shortName);
+        if(item == null) {
+            item = currentRoom.getItems(shortName);
+        }
+        if(item == null){
+            return EatResult.NOT_FOUND;
+        }
+        if(!(item instanceof Food)){
+            return EatResult.NOT_FOOD;
+        }
+        Food food = (Food) item;
+        health += food.getHealthPoints();
+        removeItems(food);
+        return EatResult.EATEN;
     }
 }
