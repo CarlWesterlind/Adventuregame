@@ -17,12 +17,12 @@ public class GameMap {
 
             Item lamp = new Item("lamp", "a shiny brass lamp");
             Item key = new Item("key", "a rusty key");
-            Item stone = new Item("stone", "a shiny stone");
+            Food mushroomSoup = new Food("Simple comfort in a bowl","A creamy soup made from freshly foraged mushrooms. Warms you from the inside out", 15);
             Item gold = new Item("gold", "You found a shiny gold bar!");
 
             room9.addItem(lamp);
             room2.addItem(key);
-            room7.addItem(stone);
+            room7.addItem(mushroomSoup);
             room5.addItem(gold);
 
             room1.setEast(room2);
