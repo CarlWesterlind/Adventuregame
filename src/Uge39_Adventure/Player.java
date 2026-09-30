@@ -86,20 +86,36 @@ public class Player {
         return result;
     }
 
-    public EatResult eat(String shortName){
-        Item item = findItem(shortName);
-        if(item == null) {
-            item = currentRoom.getItems(shortName);
+    public EatOutcome eat(String shortName) {
+        EatResult result;
+        String name = shortName;
+        int healthChange = 0;
+
+        Item item = findItem(shortName, inventory);
+        boolean inInventory = item != null;
+        if (item == null) {
+            item = findItem(shortName, currentRoom.getItems());
         }
-        if(item == null){
-            return EatResult.NOT_FOUND;
+
+        if (item == null) {
+            result = EatResult.NOT_FOUND;
+        } else if (!(item instanceof Food)) {
+            result = EatResult.NOT_FOOD;
+            name = item.getLongName();
+        } else {
+            Food food = (Food) item;
+            health += food.getHealthPoints();
+            healthChange = food.getHealthPoints();
+            name = food.getLongName();
+            if (inInventory) {
+                inventory.remove(food);
+            } else {
+                currentRoom.removeItem(food);
+            }
+            result = EatResult.EATEN;
         }
-        if(!(item instanceof EatResult)){
-            return EatResult.NOT_FOOD;
-        }
-        EatResult food = (EatResult) item;
-        health += food.getHealthPoints();
-        removeItems(food);
-        return EatResult.EATEN;
+
+        EatOutcome outcome = new EatOutcome(result, name, healthChange);
+        return outcome;
     }
 }
