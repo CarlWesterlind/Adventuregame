@@ -16,5 +16,5 @@ public class Item {
         return longName;
 
     }
-///PLEASE VIRKE NU
+
 }

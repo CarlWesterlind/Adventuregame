@@ -104,10 +104,22 @@ public class UserInterface {
                     System.out.print("Commands: \n - go north (n, north) \n - go west (w, west) \n - go east (e, east) \n - go south (s, south) \n - inventory (i) \n - take\n - drop\n - look\n - exit");
                     break;
 
+                case "health":
+                    int h = player.getHealth();
+                    System.out.println("Your health is " + h + ".");
+                    if(h > 75) {
+                        System.out.println("You feel strong");
+                    } else if (h > 25) {
+                        System.out.println("Tyr find something to eat!");
+                    }else {
+                        System.out.println("You are low on health!, Don't fight");
+                    }
+
                 case "exit":
                     System.out.print("You have exit the game!");
                     running = false;
                 break;
+
 
                 default:
                     System.out.println("Unknown command. Try 'help' for commandlist");
