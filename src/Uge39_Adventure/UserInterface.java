@@ -38,6 +38,24 @@ public class UserInterface {
                 continue;
             }
 
+            if (input.startsWith("eat ")){
+                String foodName = input.substring(4);
+                EatOutcome outcome = adventure.eat(foodName);
+
+                switch(outcome.getResult()){
+                    case NOT_FOUND:
+                        System.out.println("You don't have " + foodName + "to eat.");
+                        break;
+                    case NOT_FOOD:
+                        System.out.println("You can't eat a " + outcome.getItemName()+".");
+                        break;
+                    case EATEN:
+                        System.out.println("You ate the " + outcome.getItemName() + "Health: " + outcome.getHealthChange());
+                }
+
+                }
+
+
             switch (input) {
                 case "go north","north","n":
                     if(adventure.go("north")){

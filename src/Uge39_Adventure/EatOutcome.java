@@ -2,9 +2,6 @@ package Uge39_Adventure;
 
 public class EatOutcome {
 
-    public class EatOutcome {
-
-
         private final EatResult result;
         private final String itemName;
         private final int healthChange;
@@ -32,4 +29,4 @@ public class EatOutcome {
 
 
 
-}
+
