@@ -86,20 +86,20 @@ public class Player {
         return result;
     }
 
-    public Food eat(String shortName){
+    public EatResult eat(String shortName){
         Item item = findItem(shortName);
         if(item == null) {
             item = currentRoom.getItems(shortName);
         }
         if(item == null){
-            return Food.NOT_FOUND;
+            return EatResult.NOT_FOUND;
         }
-        if(!(item instanceof Food)){
-            return Food.NOT_FOOD;
+        if(!(item instanceof EatResult)){
+            return EatResult.NOT_FOOD;
         }
-        Food food = (Food) item;
+        EatResult food = (EatResult) item;
         health += food.getHealthPoints();
         removeItems(food);
-        return Food.EATEN;
+        return EatResult.EATEN;
     }
 }
