@@ -11,7 +11,7 @@ public class Player {
     public Player(Room stratRoom) {
         this.currentRoom = stratRoom;
         this.inventory = new ArrayList<>();
-        this.health = 75;
+        this.health = 100;
     }
 
     public boolean move(String direction) {

@@ -107,14 +107,21 @@ public class UserInterface {
 
                 case "health", "hp":
                     int health = adventure.getHealth();
-                    System.out.println("Your health is " + health + ".");
-                    if(health <= 75) {
-                        System.out.println("You feel strong");
+                    String reminder;
+                    if(health >= 100) {
+                       reminder = "You are in perfect health";
+                    } else if (health >= 50) {
+                         reminder = "You are in good health. But try find something to eat!";
+
                     } else if (health >= 25) {
-                        System.out.println("Tyr find something to eat!");
-                    }else {
-                        System.out.println("You are low on health!, Don't fight");
+                         reminder ="You are wounded";
+
+                    } else if (health >=1) {
+                         reminder = "You are barely alive";
+                    } else {
+                         reminder= "You are so low on health!, Don't fight";
                     }
+                    System.out.print("Health: " + health + " - " + reminder);
                     break;
 
                 case "exit":
