@@ -45,6 +45,9 @@ public class Adventure {
     public EatOutcome eat(String foodName) {
         return player.eat(foodName);
     }
+    public int getHealth(){
+        return player.getHealth();
+    }
 
 
 

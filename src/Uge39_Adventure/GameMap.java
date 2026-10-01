@@ -19,7 +19,7 @@ public class GameMap {
             Item key = new Item("key", "An old key with strange markings. Who knows what it might unlock?");
             Item gold = new Item("gold", "A handful of gleaming gold coins. Useful for trade, or just admiring");
             Food mushroomSoup = new Food("mushroom soup","A creamy soup made from freshly foraged mushrooms. Warms you from the inside out", 15);
-            Food wildMushroom = new Food("Wild mushroom", "A plump mushroom found deep in the woods. Looks just like the ones in your soup", -10);
+            Food wildMushroom = new Food("wild mushroom", "A wild mushroom found deep in the woods. Looks just like the ones in your soup", -25);
 
 
             room9.addItem(lamp);

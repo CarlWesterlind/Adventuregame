@@ -51,6 +51,7 @@ public class UserInterface {
                         break;
                     case EATEN:
                         System.out.println("You ate the " + outcome.getItemName() + "Health: " + outcome.getHealthChange());
+                        continue;
                 }
 
                 }
@@ -101,19 +102,20 @@ public class UserInterface {
                     break;
 
                 case "help":
-                    System.out.print("Commands: \n - go north (n, north) \n - go west (w, west) \n - go east (e, east) \n - go south (s, south) \n - inventory (i) \n - take\n - drop\n - look\n - exit");
+                    System.out.print("Commands: \n - go north (n, north) \n - go west (w, west) \n - go east (e, east) \n - go south (s, south) \n - inventory (i) \n - take\n - drop\n - look\n - health (hp)\n - exit");
                     break;
 
-                case "health":
-                    int h = player.getHealth();
-                    System.out.println("Your health is " + h + ".");
-                    if(h > 75) {
+                case "health", "hp":
+                    int health = adventure.getHealth();
+                    System.out.println("Your health is " + health + ".");
+                    if(health <= 75) {
                         System.out.println("You feel strong");
-                    } else if (h > 25) {
+                    } else if (health >= 25) {
                         System.out.println("Tyr find something to eat!");
                     }else {
                         System.out.println("You are low on health!, Don't fight");
                     }
+                    break;
 
                 case "exit":
                     System.out.print("You have exit the game!");
