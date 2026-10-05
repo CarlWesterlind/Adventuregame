@@ -123,6 +123,8 @@ public class UserInterface {
                     System.out.print("Commands: \n - go north (n, north) \n - go west (w, west) \n - go east (e, east) \n - go south (s, south) \n - inventory (i) \n - take\n - drop\n - look\n - health (hp)\n - exit");
                     break;
 
+
+
                 case "health", "hp":
                     int health = adventure.getHealth();
                     String reminder;
