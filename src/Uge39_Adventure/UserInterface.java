@@ -2,6 +2,8 @@ package Uge39_Adventure;
 
 import java.util.Scanner;
 
+import static Uge39_Adventure.AttackResult.*;
+
 public class UserInterface {
     static void User(Adventure adventure) {
         adventure.startGame();
@@ -58,14 +60,18 @@ public class UserInterface {
 
             if(input.startsWith("attack ")){
                 String weaponName = input.substring(7);
-                AttackOutcome attackOutcome = adventure.attack(weaponName);
+                AttackOutcome outcome = adventure.attack(weaponName);
 
                 switch(outcome.getResult()){
                     case NOT_FOUND:
                         System.out.println("You don't have " + weaponName + " to equip");
                         break;
                     case NOT_WEAPON:
-                        System.out.println("You can't eat " + out);
+                        System.out.println("You can't eat " + outcome.getItemName());
+                        break;
+                    case ATTACKED:
+                        System.out.println("You "  + " " + outcome.getWeaponName()
+                                + " at the empty air. " + outcome.getUsesLeftText());
                 }
             }
 

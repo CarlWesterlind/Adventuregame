@@ -5,10 +5,12 @@ public class AttackOutcome {
 
     private final AttackResult result;
     private final String itemName;
+    private final String userLeftText;
 
-    public AttackOutcome(AttackResult result, String itemName) {
+    public AttackOutcome(AttackResult result, String itemName, String userLeftText) {
         this.result = result;
         this.itemName = itemName;
+        this.userLeftText = userLeftText;
     }
 
     public AttackResult getResult() {
@@ -17,6 +19,10 @@ public class AttackOutcome {
 
     public String getItemName() {
         return itemName;
+    }
+
+    public String getUserLeftText(){
+        return userLeftText;
     }
 
 }
