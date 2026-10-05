@@ -18,7 +18,7 @@ public class RangedWeapon extends Weapon{
     }
     @Override
     public String getAttackVerb(){
-        return "";
+        return "Pow!";
     }
     @Override
     public String getUserLeftText(){
