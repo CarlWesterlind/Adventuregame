@@ -1,8 +1,8 @@
 package Uge39_Adventure;
 
 public class MeleeWeapon extends Weapon {
-    public MeleeWeapon(String shortName, String longName, int damage){
-        super(shortName, longName, damage);
+    public MeleeWeapon(String shortName, String longName, boolean isWeapon, int damage){
+        super(shortName, longName, isWeapon, damage);
     }
     @Override
     public boolean canUse(){

@@ -122,6 +122,31 @@ public class Player {
         EatOutcome outcome = new EatOutcome(result, name, healthChange);
         return outcome;
     }
+    public AttackOutcome attack(String shortName){
+        AttackResult result;
+        String name = shortName;
+        String usesLeftText = "";
+        String attackVerb = "";
+
+        Item item = findItem(shortName, inventory);
+
+        if(item == null){
+            result = AttackResult.NOT_FOUND;
+        } else if (item.isWeapon()){
+            result = AttackResult.NOT_WEAPON;
+            name = item.getLongName();
+        }else{
+            Weapon weapon = (Weapon) item;
+            name = weapon.getLongName();
+            usesLeftText = weapon.getUserLeftText();
+            attackVerb = weapon.getAttackVerb();
+            result = AttackResult.ATTACKED;
+        }
+        AttackOutcome outcome = new AttackOutcome(result, name, attackVerb,usesLeftText);
+        return outcome;
+
+
+    }
 
 
 

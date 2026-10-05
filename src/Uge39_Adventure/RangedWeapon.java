@@ -3,8 +3,8 @@ package Uge39_Adventure;
 public class RangedWeapon extends Weapon{
     private int ammunition;
 
-    public RangedWeapon(String shortName, String longName, int damage, int ammunition){
-        super(shortName, longName, damage);
+    public RangedWeapon(String shortName, String longName, boolean isWeapon, int damage, int ammunition){
+        super(shortName, longName, isWeapon, damage);
         this.ammunition = ammunition;
     }
 

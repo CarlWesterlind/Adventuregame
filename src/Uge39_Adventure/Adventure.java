@@ -49,7 +49,7 @@ public class Adventure {
         return player.getHealth();
     }
     public AttackOutcome attack(String weaponName){
-        return player.attack(foodName);
+        return player.attack(weaponName);
     }
 
 
