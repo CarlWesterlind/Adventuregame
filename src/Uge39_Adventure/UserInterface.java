@@ -67,11 +67,12 @@ public class UserInterface {
                         System.out.println("You don't have " + weaponName + " to equip");
                         break;
                     case NOT_WEAPON:
-                        System.out.println("You can't eat " + outcome.getItemName());
+                        System.out.println("You can't attack with " + outcome.getItemName());
                         break;
                     case ATTACKED:
                         System.out.println("You " + outcome.getAttackVerb() + " " + outcome.getItemName()
                                 + " at the empty air. " + outcome.getUsesLeftText());
+                        continue;
                 }
             }
 
