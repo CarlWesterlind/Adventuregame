@@ -48,6 +48,9 @@ public class Adventure {
     public int getHealth(){
         return player.getHealth();
     }
+    public AttackOutcome attack(String weaponName){
+        return player.attack(foodName);
+    }
 
 
 

@@ -56,6 +56,19 @@ public class UserInterface {
 
                 }
 
+            if(input.startsWith("attack ")){
+                String weaponName = input.substring(7);
+                AttackOutcome attackOutcome = adventure.attack(weaponName);
+
+                switch(outcome.getResult()){
+                    case NOT_FOUND:
+                        System.out.println("You don't have " + weaponName + " to equip");
+                        break;
+                    case NOT_WEAPON:
+                        System.out.println("You can't eat " + out);
+                }
+            }
+
 
             switch (input) {
                 case "go north","north","n":

@@ -122,4 +122,5 @@ public class Player {
         EatOutcome outcome = new EatOutcome(result, name, healthChange);
         return outcome;
     }
+
 }
