@@ -70,11 +70,10 @@ public class UserInterface {
                         System.out.println("You can't eat " + outcome.getItemName());
                         break;
                     case ATTACKED:
-                        System.out.println("You "  + " " + outcome.getWeaponName()
+                        System.out.println("You " + outcome.getAttackVerb() + " " + outcome.getItemName()
                                 + " at the empty air. " + outcome.getUsesLeftText());
                 }
             }
-
 
             switch (input) {
                 case "go north","north","n":
