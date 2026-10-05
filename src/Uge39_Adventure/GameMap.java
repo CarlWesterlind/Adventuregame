@@ -20,6 +20,8 @@ public class GameMap {
             Item gold = new Item("gold", "A handful of gleaming gold coins. Useful for trade, or just admiring");
             Food mushroomSoup = new Food("mushroom soup","A creamy soup made from freshly foraged mushrooms. Warms you from the inside out", 15);
             Food wildMushroom = new Food("wild mushroom", "A wild mushroom found deep in the woods. Looks just like the ones in your soup", -25);
+            Weapon maze = new MeleeWeapon("Maze", "A iron maze", 20);
+            Weapon rifle = new RangedWeapon("Mosin", "an old reliebel Mosin", 45, 5);
 
 
             room9.addItem(lamp);
@@ -27,6 +29,8 @@ public class GameMap {
             room2.addItem(mushroomSoup);
             room5.addItem(gold);
             room3.addItem(wildMushroom);
+            room4.addItem(maze);
+            room9.addItem(rifle);
 
             room1.setEast(room2);
             room1.setSouth(room4);
