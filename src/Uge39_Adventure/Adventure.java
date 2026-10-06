@@ -51,6 +51,9 @@ public class Adventure {
     public AttackOutcome attack(String weaponName){
         return player.attack(weaponName);
     }
+    public EquipOutcome equip (String weaponName){
+        return player.equip(weaponName);
+    }
 
 
 
