@@ -47,10 +47,10 @@ public class UserInterface {
                 switch(outcome.getResult()){
                     case NOT_FOUND:
                         System.out.println("You don't have " + foodName + "to eat.");
-                        break;
+                        continue;
                     case NOT_FOOD:
                         System.out.println("You can't eat a " + outcome.getItemName()+".");
-                        break;
+                        continue;
                     case EATEN:
                         System.out.println("You ate the " + outcome.getItemName() + "Health: " + outcome.getHealthChange());
                         continue;
@@ -65,10 +65,10 @@ public class UserInterface {
                 switch(outcome.getResult()){
                     case NOT_FOUND:
                         System.out.println("You don't have " + weaponName + " to equip");
-                        break;
+                        continue;
                     case NOT_WEAPON:
                         System.out.println("You can't attack with " + outcome.getItemName());
-                        break;
+                        continue;
                     case ATTACKED:
                         System.out.println("You " + outcome.getAttackVerb() + " " + outcome.getItemName()
                                 + " at the empty air. " + outcome.getUsesLeftText());
@@ -123,9 +123,7 @@ public class UserInterface {
                 case "help":
                     System.out.print("Commands: \n - go north (n, north) \n - go west (w, west) \n - go east (e, east) \n - go south (s, south) \n - inventory (i) \n - take\n - drop\n - look\n - health (hp)\n - exit");
                     break;
-
-
-
+                    
                 case "health", "hp":
                     int health = adventure.getHealth();
                     String reminder;
