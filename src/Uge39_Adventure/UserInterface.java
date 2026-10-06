@@ -14,55 +14,55 @@ public class UserInterface {
         System.out.print("Type 'help' for commands\n");
         System.out.print(adventure.look());
 
-        while(running){
+        while (running) {
             System.out.print("\n > ");
             String input = scanner.nextLine().trim().toLowerCase();
 
-            if(input.startsWith("take ")){
+            if (input.startsWith("take ")) {
                 String itemName = input.substring(5);
 
-                if (adventure.take(itemName)){
+                if (adventure.take(itemName)) {
                     System.out.println("You picked up the " + itemName + ".");
-                }else{
+                } else {
                     System.out.println("There is no " + itemName + " here.");
                 }
                 continue;
             }
 
-            if (input.startsWith("drop ")){
+            if (input.startsWith("drop ")) {
                 String itemName = input.substring(5);
 
-                if (adventure.drop(itemName)){
+                if (adventure.drop(itemName)) {
                     System.out.println("You dropped the " + itemName + ".");
-                }else{
+                } else {
                     System.out.println("You don't have a " + itemName + ".");
                 }
                 continue;
             }
 
-            if (input.startsWith("eat ")){
+            if (input.startsWith("eat ")) {
                 String foodName = input.substring(4);
                 EatOutcome outcome = adventure.eat(foodName);
 
-                switch(outcome.getResult()){
+                switch (outcome.getResult()) {
                     case NOT_FOUND:
                         System.out.println("You don't have " + foodName + "to eat.");
                         continue;
                     case NOT_FOOD:
-                        System.out.println("You can't eat a " + outcome.getItemName()+".");
+                        System.out.println("You can't eat a " + outcome.getItemName() + ".");
                         continue;
                     case EATEN:
                         System.out.println("You ate the " + outcome.getItemName() + "Health: " + outcome.getHealthChange());
                         continue;
                 }
 
-                }
-            if(input.startsWith("equip ")){
+            }
+            if (input.startsWith("equip ")) {
                 String weaponName = input.substring(6);
                 EquipOutcome outcome = adventure.equip(weaponName);
-                switch (outcome.getResult()){
+                switch (outcome.getResult()) {
                     case NOT_FOUND:
-                        System.out.println("You don't have " + weaponName +" to equip");
+                        System.out.println("You don't have " + weaponName + " to equip");
                         continue;
                     case NOT_WEAPON:
                         System.out.println("You can't equip that: " + outcome.getItemName());
@@ -73,63 +73,60 @@ public class UserInterface {
                 }
             }
 
-            if(input.startsWith("attack ")){
-                String weaponName = input.substring(7);
-                AttackOutcome outcome = adventure.attack(weaponName);
-
-                switch(outcome.getResult()){
-                    case NOT_FOUND:
-                        System.out.println("You don't have " + weaponName + " to equip");
-                        continue;
-                    case NOT_WEAPON:
-                        System.out.println("You can't attack with " + outcome.getItemName());
-                        continue;
-                    case ATTACKED:
-                        System.out.println("You " + outcome.getAttackVerb() + " " + outcome.getItemName()
-                                + " at the empty air. " + outcome.getUsesLeftText());
-                        continue;
-                }
-            }
-
             switch (input) {
-                case "go north","north","n":
-                    if(adventure.go("north")){
+                case "go north", "north", "n":
+                    if (adventure.go("north")) {
                         System.out.print("Going north\n");
                         System.out.println(adventure.look());
-                    }else {
+                    } else {
                         System.out.println("You can't go that way");
                     }
                     break;
 
-                case "go west","west","w":
-                    if(adventure.go("west")){
+                case "go west", "west", "w":
+                    if (adventure.go("west")) {
                         System.out.print("Going west\n");
                         System.out.println(adventure.look());
-                    }else {
+                    } else {
                         System.out.println("You can't go that way");
                     }
                     break;
 
-                case "go south","south","s":
-                    if(adventure.go("south")){
+                case "go south", "south", "s":
+                    if (adventure.go("south")) {
                         System.out.print("Going south\n");
                         System.out.println(adventure.look());
-                    }else {
+                    } else {
                         System.out.println("You can't go that way");
                     }
                     break;
 
-                case "go east","east","e":
-                    if(adventure.go("east")){
+                case "go east", "east", "e":
+                    if (adventure.go("east")) {
                         System.out.print("Going east\n");
                         System.out.println(adventure.look());
-                    }else {
+                    } else {
                         System.out.println("You can't go that way");
                     }
                     break;
                 case "look":
                     System.out.print(adventure.look());
                     break;
+
+                case "attack":
+                    AttackOutcome outcome = adventure.attack();
+                    switch (outcome.getResult()) {
+                        case NOT_WEAPON_EQUIP:
+                            System.out.println("You don't have a weapon equipped");
+                            continue;
+                        case OUT_OF_USES:
+                            System.out.println("You can't attack with " + outcome.getItemName());
+                            continue;
+                        case ATTACKED:
+                            System.out.println("You " + outcome.getAttackVerb() + " " + outcome.getItemName()
+                                    + " at the empty air. " + outcome.getUsesLeftText());
+                            continue;
+                    }
 
                 case "inventory", "i":
                     System.out.println(adventure.inventory());
@@ -138,22 +135,22 @@ public class UserInterface {
                 case "help":
                     System.out.print("Commands: \n - go north (n, north) \n - go west (w, west) \n - go east (e, east) \n - go south (s, south) \n - inventory (i) \n - take\n - drop\n - look\n - health (hp)\n - exit");
                     break;
-                    
+
                 case "health", "hp":
                     int health = adventure.getHealth();
                     String reminder;
-                    if(health >= 100) {
-                       reminder = "You are in perfect health";
+                    if (health >= 100) {
+                        reminder = "You are in perfect health";
                     } else if (health >= 50) {
-                         reminder = "You are in good health. But try find something to eat!";
+                        reminder = "You are in good health. But try find something to eat!";
 
                     } else if (health >= 25) {
-                         reminder ="You are wounded";
+                        reminder = "You are wounded";
 
-                    } else if (health >=1) {
-                         reminder = "You are barely alive";
+                    } else if (health >= 1) {
+                        reminder = "You are barely alive";
                     } else {
-                         reminder= "You are so low on health!, Don't fight";
+                        reminder = "You are so low on health!, Don't fight";
                     }
                     System.out.print("Health: " + health + " - " + reminder);
                     break;
@@ -161,7 +158,7 @@ public class UserInterface {
                 case "exit":
                     System.out.print("You have exit the game!");
                     running = false;
-                break;
+                    break;
 
 
                 default:
