@@ -7,6 +7,7 @@ public class Player {
     private Room currentRoom;
     private ArrayList<Item> inventory;
     private int health;
+    private Weapon equipped;
 
     public Player(Room stratRoom) {
         this.currentRoom = stratRoom;
@@ -131,21 +132,38 @@ public class Player {
         Item item = findItem(shortName, inventory);
 
         if(item == null){
-            result = AttackResult.NOT_FOUND;
+            result = AttackResult.NOT_WEAPON_EQUIP;
         } else if (item.isWeapon()){
-            result = AttackResult.NOT_WEAPON;
+            result = AttackResult.OUT_OF_USES;
             name = item.getLongName();
         }else{
-            Weapon weapon = (Weapon) item;
-            name = weapon.getLongName();
-            usesLeftText = weapon.getUserLeftText();
-            attackVerb = weapon.getAttackVerb();
+            Weapon equip = (Weapon) item;
+            name = equip.getLongName();
+            usesLeftText = equip.getUserLeftText();
+            attackVerb = equip.getAttackVerb();
             result = AttackResult.ATTACKED;
         }
         AttackOutcome outcome = new AttackOutcome(result, name, attackVerb,usesLeftText);
         return outcome;
 
 
+    }
+    public EquipOutcome equip(String shortName){
+        EquipResult result;
+        Item item = findItem(shortName, inventory);
+        String name = shortName;
+
+        if(item == null) {
+            result = EquipResult.NOT_FOUND;
+        } else if (!item.isWeapon()) {
+            result = EquipResult.NOT_WEAPON;
+            name = item.getLongName();
+        }else {
+            equipped = (Weapon) item;
+            name = item.getLongName();
+            result = EquipResult.EQUIPPED;
+        }
+        return new EquipOutcome(result, name);
     }
 
 

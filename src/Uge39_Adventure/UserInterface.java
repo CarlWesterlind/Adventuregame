@@ -57,6 +57,21 @@ public class UserInterface {
                 }
 
                 }
+            if(input.startsWith("equip ")){
+                String weaponName = input.substring(6);
+                EquipOutcome outcome = adventure.equip(weaponName);
+                switch (outcome.getResult()){
+                    case NOT_FOUND:
+                        System.out.println("You don't have " + weaponName +" to equip");
+                        continue;
+                    case NOT_WEAPON:
+                        System.out.println("You can't equip that: " + outcome.getItemName());
+                        continue;
+                    case EQUIPPED:
+                        System.out.println("You have equipped: " + weaponName);
+                        continue;
+                }
+            }
 
             if(input.startsWith("attack ")){
                 String weaponName = input.substring(7);
