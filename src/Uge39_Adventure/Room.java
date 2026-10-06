@@ -9,6 +9,7 @@ public class Room {
     private Room west;
     private boolean visited = false;
     private ArrayList<Item> items;
+    private ArrayList<Enemy> enemies;
 
     public Room(String name, String description) {
         this.name = name;
@@ -80,5 +81,7 @@ public class Room {
     public ArrayList<Item> getItems(){
         return items;
     }
+
+    public ArrayList<Enemy> getEnemies() { return enemies; }
 
 }
