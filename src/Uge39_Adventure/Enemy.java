@@ -2,21 +2,25 @@ package Uge39_Adventure;
 
 public class Enemy {
 
-    String name;
+    String shortName;
+    String longName;
     int enemyHealth;
     int enemyDamage;
     boolean isAlive = true;
 
 
-    public Enemy(String name, int enemyHealth, int enemyDamage){
-        this.name = name;
+    public Enemy(String shortName, String longName, int enemyHealth, int enemyDamage){
+        this.shortName = shortName;
+        this.longName = longName;
         this.enemyHealth = enemyHealth;
         this.enemyDamage = enemyDamage;
     }
 
-    public String getName(){
-        return name;
+    public String getShortName(){
+        return shortName;
     }
+
+    public String getLongName() { return longName; }
 
     public int getEnemyHealth(){
         return enemyHealth;

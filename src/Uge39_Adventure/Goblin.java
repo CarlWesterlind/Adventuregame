@@ -4,7 +4,7 @@ public class Goblin extends Enemy{
 
 
     public Goblin() {
-        super("Goblin",40,7);
+        super("Goblin","A filthy goblin is lurking in the corner.",40, 7);
     }
 
 

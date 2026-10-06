@@ -27,6 +27,13 @@ public class Adventure {
                 result += "\n- " + item.getLongName();
             }
         }
+        if (!room.getEnemies().isEmpty()) {
+            result += "\nEnemies:";
+
+            for (Enemy enemy : room.getEnemies()) {
+                result += "\n- " + enemy.getLongName();
+            }
+        }
         return result;
     }
 
