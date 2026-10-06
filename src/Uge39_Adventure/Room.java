@@ -15,6 +15,7 @@ public class Room {
         this.name = name;
         this.description = description;
         this.items = new ArrayList<>();
+        this.enemies = new ArrayList<>();
     }
 
     public void setNorth(Room north) {
