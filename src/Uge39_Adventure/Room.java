@@ -84,4 +84,8 @@ public class Room {
 
     public ArrayList<Enemy> getEnemies() { return enemies; }
 
+    public void addEnemy(Enemy enemy) { enemies.add(enemy); }
+
+    public void removeEnemy(Enemy enemy) { enemies.remove(enemy); }
+
 }
