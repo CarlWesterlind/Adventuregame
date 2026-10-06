@@ -123,27 +123,25 @@ public class Player {
         EatOutcome outcome = new EatOutcome(result, name, healthChange);
         return outcome;
     }
-    public AttackOutcome attack(String shortName){
+    public AttackOutcome attack(){
         AttackResult result;
-        String name = shortName;
+        String name = "";
         String usesLeftText = "";
         String attackVerb = "";
 
-        Item item = findItem(shortName, inventory);
-
-        if(item == null){
+        if(equipped == null){
             result = AttackResult.NOT_WEAPON_EQUIP;
-        } else if (item.isWeapon()){
+        } else if (!equipped.canUse()){
             result = AttackResult.OUT_OF_USES;
-            name = item.getLongName();
+            name = equipped.getLongName();
         }else{
-            Weapon equip = (Weapon) item;
-            name = equip.getLongName();
-            usesLeftText = equip.getUserLeftText();
-            attackVerb = equip.getAttackVerb();
+            name = equipped.getLongName();
+            usesLeftText = equipped.getUserLeftText();
+            attackVerb = equipped.getAttackVerb();
+            equipped.use();
             result = AttackResult.ATTACKED;
         }
-        AttackOutcome outcome = new AttackOutcome(result, name, attackVerb,usesLeftText);
+        AttackOutcome outcome = new AttackOutcome(result, name, usesLeftText, attackVerb);
         return outcome;
 
 

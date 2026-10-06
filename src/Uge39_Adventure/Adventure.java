@@ -48,8 +48,8 @@ public class Adventure {
     public int getHealth(){
         return player.getHealth();
     }
-    public AttackOutcome attack(String weaponName){
-        return player.attack(weaponName);
+    public AttackOutcome attack(){
+        return player.attack();
     }
     public EquipOutcome equip (String weaponName){
         return player.equip(weaponName);
