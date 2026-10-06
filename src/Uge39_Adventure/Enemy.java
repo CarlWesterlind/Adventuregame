@@ -30,8 +30,8 @@ public class Enemy {
         return enemyDamage;
     }
 
-    public void EnemyTakeDamage(){
-
+    public void EnemyTakeDamage(int damage) {
+        enemyHealth -= damage;
     }
 
     public void isAlive(){
