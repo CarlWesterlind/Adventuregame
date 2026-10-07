@@ -1,5 +1,5 @@
 package Uge39_Adventure;
-
+    //Enemy repræsenterer en fjende i spillet med navn, beskrivelse, liv og et våben.
 public class Enemy {
 
     private String shortName;
@@ -39,6 +39,11 @@ public class Enemy {
         return weapon;
     }
 
+    /*
+       Trækker skade fra fjendens liv. Hvis liv når 0 eller derunder, dropper fjenden
+       sit våben i rummet og fjernes fra rummet. Returnerer true hvis fjenden døde,
+       ellers false.
+    */
     public boolean hit(int damage) {
         health -= damage;
         if(health <= 0) {
@@ -48,6 +53,13 @@ public class Enemy {
         }
         return false;
     }
+    /*
+    Fjenden forsøger at angribe spilleren med sit eget våben. Hvis våbnet ikke
+    kan bruges (f.eks. løbet tør for ammunition), returneres 0 for at vise, at
+    fjenden ikke kunne ramme. Ellers bruges våbnet, og den skade det gør
+    returneres og trækkes fra spillerens liv.
+    OBS: Lige nu har ingen fjende en RangedWeapon.
+     */
     public int attack(Player player){
         if(!weapon.canUse()){
             return 0;
