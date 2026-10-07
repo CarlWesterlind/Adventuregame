@@ -15,13 +15,14 @@ public class GameMap {
             Room room8 = new Room("Room 8", "A fun room");
             Room room9 = new Room("Room 9", "A terrible room");
 
-            Item lamp = new Item("lamp", "A trusty lamp, worn from many journeys. Its warm glow lights the path ahead.", false);
-            Item key = new Item("key", "An old key with strange markings. Who knows what it might unlock?", false);
-            Item gold = new Item("gold", "A handful of gleaming gold coins. Useful for trade, or just admiring",false);
-            Food mushroomSoup = new Food("mushroom soup","A creamy soup made from freshly foraged mushrooms. Warms you from the inside out",false,15);
-            Food wildMushroom = new Food("wild mushroom", "A wild mushroom found deep in the woods. Looks just like the ones in your soup",false ,-25);
-            Weapon maze = new MeleeWeapon("maze", "A iron maze",true,20);
-            Weapon rifle = new RangedWeapon("mosin", "an old reliebel Mosin",true , 45, 5);
+            Item lamp = new Item("lamp", "A trusty 'lamp', worn from many journeys. Its warm glow lights the path ahead.", false);
+            Item key = new Item("key", "An old 'key' with strange markings. Who knows what it might unlock?", false);
+            Item gold = new Item("gold", "A handful of gleaming 'gold' coins. Useful for trade, or just admiring",false);
+            Food mushroomSoup = new Food("soup","A creamy 'soup' made from freshly foraged mushrooms. Warms you from the inside out",false,15);
+            Food wildMushroom = new Food("mushroom", "A wild 'mushroom' found deep in the woods. Looks just like the ones in your soup",false ,-25);
+            Weapon maze = new MeleeWeapon("maze", "A iron 'maze'",true,20);
+            Weapon rifle = new RangedWeapon("mosin", "an old reliebel 'mosin'",true , 45, 5);
+
             Enemy goblin = new Goblin(room4);
             room4.addEnemy(goblin);
             Enemy dragon = new Dragon(room5);

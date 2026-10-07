@@ -105,7 +105,7 @@ public class Player {
 
         if (item == null) {
             result = EatResult.NOT_FOUND;
-        } else if (!(item instanceof Food)) {
+        } else if (!(item.isFood())) {
             result = EatResult.NOT_FOOD;
             name = item.getLongName();
         } else {

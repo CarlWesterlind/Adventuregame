@@ -46,14 +46,20 @@ public class UserInterface {
 
                 switch (outcome.getResult()) {
                     case NOT_FOUND:
-                        System.out.println("You don't have " + foodName + "to eat.");
+                        System.out.println("You don't have " + foodName + " to eat.");
                         continue;
                     case NOT_FOOD:
                         System.out.println("You can't eat a " + outcome.getItemName() + ".");
                         continue;
                     case EATEN:
-                        System.out.println("You ate the " + outcome.getItemName() + "Health: " + outcome.getHealthChange());
-                        continue;
+                        if(adventure.getHealth() >1) {
+                            System.out.println("You ate the " + outcome.getItemName() + "Health: " + outcome.getHealthChange());
+                            continue;
+                        }else {
+                            System.out.println("GAME OVER! You died from " + outcome.getItemName());
+                            running = false;
+                            continue;
+                        }
                 }
 
             }
@@ -169,6 +175,7 @@ public class UserInterface {
                     String reminder;
                     if (health >= 100) {
                         reminder = "You are in perfect health";
+
                     } else if (health >= 50) {
                         reminder = "You are in good health. But try find something to eat!";
 
@@ -176,9 +183,9 @@ public class UserInterface {
                         reminder = "You are wounded";
 
                     } else if (health >= 1) {
-                        reminder = "You are barely alive";
-                    } else {
-                        reminder = "You are so low on health!, Don't fight";
+                        reminder = "You are barely alive. Don't fight ";
+                    }  else {
+                        reminder = "You should be dead";
                     }
                     System.out.print("Health: " + health + " - " + reminder);
                     break;

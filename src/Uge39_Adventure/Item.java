@@ -21,5 +21,8 @@ public class Item {
     public boolean isWeapon(){
         return isWeapon;
     }
+    public boolean isFood(){
+        return false;
+    }
 
 }
