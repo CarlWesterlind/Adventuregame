@@ -61,6 +61,9 @@ public class Player {
     }
 
     public boolean takeItem(String name) {
+        if(name.equals("gold") && currentRoom.findEnemy("dragon") !=null){
+            return false;
+        }
         Item item = findItem(name, currentRoom.getItems());
         if (item == null) {
             return false;

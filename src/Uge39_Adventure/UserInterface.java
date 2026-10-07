@@ -20,8 +20,11 @@ public class UserInterface {
 
             if (input.startsWith("take ")) {
                 String itemName = input.substring(5);
-
-                if (adventure.take(itemName)) {
+                boolean success = adventure.take(itemName);
+                if (success && itemName.equals("gold")) {
+                    System.out.print("You have taken the gold! You win the game!");
+                    running = false;
+                } else if (success) {
                     System.out.println("You picked up the " + itemName + ".");
                 } else {
                     System.out.println("There is no " + itemName + " here.");
