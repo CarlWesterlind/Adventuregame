@@ -22,7 +22,11 @@ public class GameMap {
             Food wildMushroom = new Food("wild mushroom", "A wild mushroom found deep in the woods. Looks just like the ones in your soup",false ,-25);
             Weapon maze = new MeleeWeapon("maze", "A iron maze",true,20);
             Weapon rifle = new RangedWeapon("mosin", "an old reliebel Mosin",true , 45, 5);
-            Enemy goblin = new Goblin();
+            Enemy goblin = new Goblin(room4);
+            room4.addEnemy(goblin);
+            Enemy dragon = new Dragon(room5);
+            room5.addEnemy(dragon);
+
 
 
             room9.addItem(lamp);
@@ -32,7 +36,6 @@ public class GameMap {
             room3.addItem(wildMushroom);
             room4.addItem(maze);
             room9.addItem(rifle);
-            room4.addEnemy(goblin);
 
             room1.setEast(room2);
             room1.setSouth(room4);

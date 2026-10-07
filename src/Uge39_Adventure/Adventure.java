@@ -28,10 +28,10 @@ public class Adventure {
             }
         }
         if (!room.getEnemies().isEmpty()) {
-            result += "\nEnemies:";
+            result += "\nBeware! Here lurks: ";
 
             for (Enemy enemy : room.getEnemies()) {
-                result += "\n- " + enemy.getLongName();
+                result += "\n- " + enemy.getDescription();
             }
         }
         return result;
@@ -55,12 +55,13 @@ public class Adventure {
     public int getHealth(){
         return player.getHealth();
     }
-    public AttackOutcome attack(){
-        return player.attack();
+    public AttackOutcome attack(String enemyName){
+        return player.attack(enemyName);
     }
     public EquipOutcome equip (String weaponName){
         return player.equip(weaponName);
     }
+
 
 
 

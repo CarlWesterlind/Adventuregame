@@ -83,10 +83,26 @@ public class Room {
         return items;
     }
 
-    public ArrayList<Enemy> getEnemies() { return enemies; }
+    public ArrayList<Enemy> getEnemies() {
+        return enemies;
+    }
 
-    public void addEnemy(Enemy enemy) { enemies.add(enemy); }
+    public void addEnemy(Enemy enemy) {
+        enemies.add(enemy);
+    }
 
-    public void removeEnemy(Enemy enemy) { enemies.remove(enemy); }
+    public void removeEnemy(Enemy enemy) {
+        enemies.remove(enemy);
+    }
+
+    public Enemy findEnemy(String shortName) {
+        for (Enemy enemy : enemies){
+            if(enemy.getShortName().equals(shortName)) {
+                return enemy;
+            }
+        }
+
+        return null;
+    }
 
 }

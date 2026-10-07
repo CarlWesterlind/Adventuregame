@@ -1,3 +1,4 @@
 package Uge39_Adventure;
 
-public enum AttackResult {OUT_OF_USES, NOT_WEAPON_EQUIP, ATTACKED}
+public enum AttackResult {NOT_WEAPON_EQUIP, OUT_OF_USES, NO_SUCH_ENEMY, HIT_AIR,
+    ENEMY_DIED, ENEMY_HIT_BACK, ENEMY_COULD_NOT_HIT, PLAYER_DIED}

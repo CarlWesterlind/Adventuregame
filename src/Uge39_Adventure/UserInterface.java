@@ -73,7 +73,50 @@ public class UserInterface {
                 }
             }
 
-            switch (input) {
+            if(input.equals("attack")||input.startsWith("attack ")){
+                String enemyName = "";
+                if(input.equals("attack ")) {
+                    enemyName = input.substring(7);
+                }
+                    AttackOutcome outcome = adventure.attack(enemyName);
+
+                    switch(outcome.getResult()) {
+                        case NOT_WEAPON_EQUIP:
+                            System.out.println("You don't have a weapon equipped.");
+                            break;
+                        case OUT_OF_USES:
+                            System.out.println("Your " + outcome.getWeaponName() + " can't be used anymore");
+                            break;
+                        case NO_SUCH_ENEMY:
+                            System.out.println("There is no " + enemyName + " here.");
+                            break;
+                        case HIT_AIR:
+                            System.out.println("You " + outcome.getAttackVerb() + " " + outcome.getWeaponName() +
+                                    " at the empty air. " + outcome.getUsesLeftText());
+                            break;
+                        case ENEMY_DIED:
+                            System.out.println("You hit " + outcome.getEnemyName() + " for " + outcome.getDamageDealt() + " damage.");
+                            System.out.println(outcome.getEnemyName() + " dies. It dropped " + outcome.getDroppedWeaponName() + ".");
+                            break;
+                        case ENEMY_COULD_NOT_HIT:
+                            System.out.println("You hit " + outcome.getEnemyName() + " for " + outcome.getDamageDealt() + " damage.");
+                            System.out.println(outcome.getEnemyName() + " tries to strike back, but can't");
+                            break;
+                        case ENEMY_HIT_BACK:
+                            System.out.println("You hit " + outcome.getEnemyName() + " for " + outcome.getDamageDealt() + " damage.");
+                            System.out.println(outcome.getEnemyName() + " hits you for " + outcome.getDamageTaken() + " damage");
+                            break;
+                        case PLAYER_DIED:
+                            System.out.println("You hit " + outcome.getEnemyName() + " for " + outcome.getDamageDealt() + " damage.");
+                            System.out.println(outcome.getEnemyName() + " hits you for " + outcome.getDamageTaken() + " damage");
+                            System.out.println("GAME OVER!!! You have died");
+                            running = false;
+                            break;
+                    }
+                    continue;
+                }
+
+                    switch (input) {
                 case "go north", "north", "n":
                     if (adventure.go("north")) {
                         System.out.print("Going north\n");
@@ -112,21 +155,6 @@ public class UserInterface {
                 case "look":
                     System.out.print(adventure.look());
                     break;
-
-                case "attack":
-                    AttackOutcome outcome = adventure.attack();
-                    switch (outcome.getResult()) {
-                        case NOT_WEAPON_EQUIP:
-                            System.out.println("You don't have a weapon equipped");
-                            continue;
-                        case OUT_OF_USES:
-                            System.out.println("You can't attack with " + outcome.getItemName());
-                            continue;
-                        case ATTACKED:
-                            System.out.println("You " + outcome.getAttackVerb() + " " + outcome.getItemName()
-                                    + " at the empty air. " + outcome.getUsesLeftText());
-                            continue;
-                    }
 
                 case "inventory", "i":
                     System.out.println(adventure.inventory());

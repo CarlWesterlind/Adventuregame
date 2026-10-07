@@ -13,6 +13,7 @@ public class Player {
         this.currentRoom = stratRoom;
         this.inventory = new ArrayList<>();
         this.health = 100;
+        this.equipped = null;
     }
 
     public boolean move(String direction) {
@@ -123,25 +124,59 @@ public class Player {
         EatOutcome outcome = new EatOutcome(result, name, healthChange);
         return outcome;
     }
-    public AttackOutcome attack(){
+    public AttackOutcome attack(String enemyName){
         AttackResult result;
-        String name = "";
+        String weaponName = "";
         String usesLeftText = "";
         String attackVerb = "";
+        String targetName = enemyName;
+        String droppedWeaponName = "";
+        int damageDealt = 0;
+        int damageTaken = 0;
 
+        Enemy enemy = null;
+        if(!enemyName.isEmpty()){
+            enemy = currentRoom.findEnemy(enemyName);
+        } else if (!currentRoom.getEnemies().isEmpty()) {
+            enemy = currentRoom.getEnemies().get(0);
+        }
         if(equipped == null){
             result = AttackResult.NOT_WEAPON_EQUIP;
-        } else if (!equipped.canUse()){
+        } else if (!equipped.canUse()) {
             result = AttackResult.OUT_OF_USES;
-            name = equipped.getLongName();
-        }else{
-            name = equipped.getLongName();
+            weaponName = equipped.getLongName();
+        } else if (!enemyName.isEmpty() && enemy == null) {
+            result = AttackResult.NO_SUCH_ENEMY;
+        } else if (enemy == null) {
+            equipped.use();
+            weaponName = equipped.getLongName();
             usesLeftText = equipped.getUserLeftText();
             attackVerb = equipped.getAttackVerb();
+            result = AttackResult.HIT_AIR;
+        } else {
             equipped.use();
-            result = AttackResult.ATTACKED;
+            weaponName = equipped.getLongName();
+            usesLeftText = equipped.getUserLeftText();
+            attackVerb = equipped.getAttackVerb();
+            targetName = enemy.getLongName();
+            damageDealt = equipped.getDamage();
+
+            boolean died = enemy.hit(damageDealt);
+            if (died) {
+                droppedWeaponName = enemy.getWeapon().getLongName();
+                result = AttackResult.ENEMY_DIED;
+            } else {
+                damageTaken = enemy.attack(this);
+                if (damageTaken == 0) {
+                    result = AttackResult.ENEMY_COULD_NOT_HIT;
+                } else if (health <= 0) {
+                    result = AttackResult.PLAYER_DIED;
+                } else {
+                    result = AttackResult.ENEMY_HIT_BACK;
+                }
+            }
         }
-        AttackOutcome outcome = new AttackOutcome(result, name, usesLeftText, attackVerb);
+        AttackOutcome outcome = new AttackOutcome(result, weaponName, usesLeftText, attackVerb, targetName, droppedWeaponName, damageDealt, damageTaken);
         return outcome;
 
 
@@ -164,5 +199,10 @@ public class Player {
         return new EquipOutcome(result, name);
     }
 
+    public void hit(int damage){
+        health -= damage;
+    }
+
 
 }
+
