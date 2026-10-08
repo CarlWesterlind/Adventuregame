@@ -80,6 +80,9 @@ public class Player {
         }
         inventory.remove(item);
         currentRoom.addItem(item);
+        if(item == equipped){
+            equipped = null;
+        }
         return true;
     }
 

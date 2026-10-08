@@ -86,7 +86,7 @@ public class UserInterface {
 
             if(input.equals("attack")||input.startsWith("attack ")){
                 String enemyName = "";
-                if(input.equals("attack ")) {
+                if(input.startsWith("attack ")) {
                     enemyName = input.substring(7);
                 }
                     AttackOutcome outcome = adventure.attack(enemyName);
