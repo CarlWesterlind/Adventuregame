@@ -1,4 +1,6 @@
 package Uge39_Adventure;
+// Kvittering for et attack-forsøg: resultatet, våbnets navn, fjendens navn,
+// hvor meget skade der blev givet og modtaget, og hvilket våben fjenden droppede, hvis den døde.
 
 public class AttackOutcome {
 
