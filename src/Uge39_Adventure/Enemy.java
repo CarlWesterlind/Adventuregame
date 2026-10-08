@@ -1,4 +1,5 @@
 package Uge39_Adventure;
+import java.util.Random;
     //Enemy repræsenterer en fjende i spillet med navn, beskrivelse, liv og et våben.
 public class Enemy {
 
@@ -8,6 +9,7 @@ public class Enemy {
     private int health;
     private Weapon weapon;
     private Room room;
+    private Random random = new Random();
 
 
     public Enemy(String shortName, String longName, String description, int health, Weapon weapon, Room room){
@@ -58,6 +60,7 @@ public class Enemy {
     kan bruges (f.eks. løbet tør for ammunition), returneres 0 for at vise, at
     fjenden ikke kunne ramme. Ellers bruges våbnet, og den skade det gør
     returneres og trækkes fra spillerens liv.
+    og att det fins en 10% chanse for at enemy miss attack.
     OBS: Lige nu har ingen fjende en RangedWeapon.
      */
     public int attack(Player player){
@@ -65,6 +68,9 @@ public class Enemy {
             return 0;
         }
         weapon.use();
+        if(random.nextInt(100) < 10){
+            return 0;
+        }
         int damage = weapon.getDamage();
         player.hit(damage);
         return damage;
