@@ -10,9 +10,11 @@ public class UserInterface {
 
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
-        System.out.print("Welcome to Adventure!\n");
-        System.out.print("Type 'help' for commands\n");
+        System.out.print("Welcome to The Forgotten Dungeon!\n");
+        System.out.println("You wake up in a dark, forgotten place, with no memory of how you got here.\n\n");
         System.out.print(adventure.look());
+        System.out.println("Type 'help' for commands\n");
+
 
         while (running) {
             System.out.print("\n > ");
